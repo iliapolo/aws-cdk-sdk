@@ -11,6 +11,7 @@
 .jsii
 .nyc_output
 .sdk
+.vscode/
 .yarn-integrity
 /coverage
 /dist
