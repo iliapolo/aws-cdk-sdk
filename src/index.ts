@@ -120,7 +120,6 @@ export * as managedblockchain from './clients/managedblockchain';
 export * as marketplacecatalog from './clients/marketplacecatalog';
 export * as marketplacecommerceanalytics from './clients/marketplacecommerceanalytics';
 export * as mediaconnect from './clients/mediaconnect';
-export * as mediaconvert from './clients/mediaconvert';
 export * as medialive from './clients/medialive';
 export * as mediapackage from './clients/mediapackage';
 export * as mediapackagevod from './clients/mediapackagevod';

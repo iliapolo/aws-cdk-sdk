@@ -1,11 +1,27 @@
 {
   "dependencies": [
     {
-      "name": "@aws-cdk/assert",
+      "name": "@aws-cdk/assertions",
       "type": "build"
     },
     {
       "name": "@aws-cdk/aws-elasticsearch",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-route53",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-s3",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-ses",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-sqs",
       "type": "build"
     },
     {
@@ -31,6 +47,10 @@
     },
     {
       "name": "@typescript-eslint/parser",
+      "type": "build"
+    },
+    {
+      "name": "aws-cdk",
       "type": "build"
     },
     {

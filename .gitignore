@@ -11,6 +11,7 @@
 .jsii
 .nyc_output
 .sdk
+.vscode/
 .yarn-integrity
 /coverage
 /dist
@@ -19,6 +20,7 @@
 /lib
 /test-reports/
 build/Release
+cdk.out
 coverage
 jspm_packages/
 junit.xml
@@ -45,7 +47,6 @@ yarn-error.log*
 !/.projen/jest-snapshot-resolver.js
 !/.projen/tasks.json
 !/.projenrc.js
-!/API.md
 !/LICENSE
 !/package.json
 !/src
