@@ -14,8 +14,6 @@ This library does the same, but in a **type-safe** manner that simulates direct 
 
 ## Examples
 
-> Directly adapted from https://docs.aws.amazon.com/cdk/api/latest/docs/custom-resources-readme.html#custom-resource-examples
-
 ### Get the latest version of a secure SSM parameter
 
 ```ts
@@ -30,23 +28,4 @@ const parameter = client.fetchParameter({ name: 'my-parameter', withDecryption: 
 
 const value = parameter.value;
 const type = parameter.type;
-```
-
-### Associate a PrivateHostedZone with VPC shared from another account
-
-```ts
-import { App, Stack } from '@aws-cdk/core';
-import { Route53Client } from 'aws-cdk-sdk/clients/route53';
-
-const app = new App();
-const stack = new Stack(app, 'ssm-stack');
-const client = new Route53Client(stack, 'Client', ['*']);
-
-client.associateVpcWithHostedZone({
-  hostedZoneId: 'hz-123',
-  vpc: {
-    vpcId: 'vpc-123',
-    vpcRegion: 'region-for-vpc',
-  },
-});
 ```
