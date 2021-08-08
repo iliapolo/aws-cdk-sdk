@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+Object {
+  "Outputs": Object {
+    "DomainEndpoint": Object {
+      "Value": Object {
+        "Fn::GetAtt": Array [
+          "ClientDescribeElasticsearchDomainDomainStatusEndpoint116E0506",
+          "DomainStatus.Endpoint",
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797ArtifactHashAAFCA968": Object {
+      "Description": "Artifact hash for asset \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
+      "Type": "String",
+    },
+    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9": Object {
+      "Description": "S3 bucket for asset \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
+      "Type": "String",
+    },
+    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9": Object {
+      "Description": "S3 key for asset version \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
+      "DependsOn": Array [
+        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 120,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ClientDescribeElasticsearchDomainDomainStatusEndpoint116E0506": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "ClientDescribeElasticsearchDomainDomainStatusEndpointCustomResourcePolicyBBF4640D",
+      ],
+      "Properties": Object {
+        "Create": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"action\\":\\"describeElasticsearchDomain\\",\\"service\\":\\"ES\\",\\"physicalResourceId\\":{\\"id\\":\\"ES.DescribeElasticsearchDomain.DomainStatus.Endpoint\\"},\\"outputPath\\":\\"DomainStatus.Endpoint\\",\\"parameters\\":{\\"DomainName\\":\\"",
+              Object {
+                "Ref": "Domain66AC69E0",
+              },
+              "\\"}}",
+            ],
+          ],
+        },
+        "InstallLatestAwsSdk": true,
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+        "Update": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"action\\":\\"describeElasticsearchDomain\\",\\"service\\":\\"ES\\",\\"physicalResourceId\\":{\\"id\\":\\"ES.DescribeElasticsearchDomain.DomainStatus.Endpoint\\"},\\"outputPath\\":\\"DomainStatus.Endpoint\\",\\"parameters\\":{\\"DomainName\\":\\"",
+              Object {
+                "Ref": "Domain66AC69E0",
+              },
+              "\\"}}",
+            ],
+          ],
+        },
+      },
+      "Type": "Custom::AWS",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ClientDescribeElasticsearchDomainDomainStatusEndpointCustomResourcePolicyBBF4640D": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "es:DescribeElasticsearchDomain",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "Domain66AC69E0",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ClientDescribeElasticsearchDomainDomainStatusEndpointCustomResourcePolicyBBF4640D",
+        "Roles": Array [
+          Object {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "Domain66AC69E0": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "CognitoOptions": Object {
+          "Enabled": false,
+        },
+        "DomainEndpointOptions": Object {
+          "EnforceHTTPS": false,
+          "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
+        },
+        "EBSOptions": Object {
+          "EBSEnabled": true,
+          "VolumeSize": 10,
+          "VolumeType": "gp2",
+        },
+        "ElasticsearchClusterConfig": Object {
+          "DedicatedMasterEnabled": false,
+          "InstanceCount": 1,
+          "InstanceType": "r5.large.elasticsearch",
+          "ZoneAwarenessEnabled": false,
+        },
+        "ElasticsearchVersion": "7.10",
+        "EncryptionAtRestOptions": Object {
+          "Enabled": false,
+        },
+        "LogPublishingOptions": Object {},
+        "NodeToNodeEncryptionOptions": Object {
+          "Enabled": false,
+        },
+      },
+      "Type": "AWS::Elasticsearch::Domain",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+}
+`;

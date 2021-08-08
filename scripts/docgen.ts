@@ -9,7 +9,7 @@ async function main() {
 
   for (const client of clients) {
     const reference = docs.render({ submodule: client, readme: false });
-    fs.writeFileSync(`${__dirname}/../src/clients/${client}/API.md`, reference.render());
+    fs.writeFileSync(`${__dirname}/../src/clients/${client}/README.md`, reference.render());
   }
 
 }

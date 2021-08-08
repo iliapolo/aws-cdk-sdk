@@ -43,6 +43,9 @@
           "spawn": "codegen"
         },
         {
+          "exec": "rm -rf lib"
+        },
+        {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
         },
         {
@@ -57,6 +60,9 @@
     "test": {
       "name": "test",
       "description": "Run tests",
+      "env": {
+        "NODE_OPTIONS": "--max_old_space_size=5000"
+      },
       "steps": [
         {
           "spawn": "test:compile"
@@ -148,7 +154,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @aws-cdk/assert @aws-cdk/aws-elasticsearch @aws-cdk/core @aws-cdk/custom-resources @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-sdk codemaker constructs eslint eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import jest jest-junit jsii jsii-diff jsii-docgen jsii-pacmak json-schema json2jsii node-color-log npm-check-updates standard-version ts-node typescript typescript-json-schema typescript-parser @aws-cdk/core @aws-cdk/custom-resources constructs"
+          "exec": "yarn upgrade @aws-cdk/assertions @aws-cdk/aws-elasticsearch @aws-cdk/aws-s3 @aws-cdk/aws-sqs @aws-cdk/core @aws-cdk/custom-resources @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk aws-sdk codemaker constructs eslint eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import jest jest-junit jsii jsii-diff jsii-docgen jsii-pacmak json-schema json2jsii node-color-log npm-check-updates standard-version ts-node typescript typescript-json-schema typescript-parser @aws-cdk/core @aws-cdk/custom-resources constructs"
         },
         {
           "exec": "npx projen"
@@ -252,6 +258,82 @@
       "steps": [
         {
           "exec": "ts-node --skip-project scripts/docgen.ts"
+        }
+      ]
+    },
+    "integ:deploy": {
+      "name": "integ:deploy",
+      "steps": [
+        {
+          "spawn": "integ:es:deploy"
+        },
+        {
+          "spawn": "integ:s3:deploy"
+        },
+        {
+          "spawn": "integ:sqs:deploy"
+        }
+      ]
+    },
+    "integ:destroy": {
+      "name": "integ:destroy",
+      "steps": [
+        {
+          "spawn": "integ:es:destroy"
+        },
+        {
+          "spawn": "integ:s3:destroy"
+        },
+        {
+          "spawn": "integ:sqs:destroy"
+        }
+      ]
+    },
+    "integ:es:deploy": {
+      "name": "integ:es:deploy",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/es/es.integ.js' deploy"
+        }
+      ]
+    },
+    "integ:es:destroy": {
+      "name": "integ:es:destroy",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/es/es.integ.js' destroy"
+        }
+      ]
+    },
+    "integ:s3:deploy": {
+      "name": "integ:s3:deploy",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/s3/s3.integ.js' deploy"
+        }
+      ]
+    },
+    "integ:s3:destroy": {
+      "name": "integ:s3:destroy",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/s3/s3.integ.js' destroy"
+        }
+      ]
+    },
+    "integ:sqs:deploy": {
+      "name": "integ:sqs:deploy",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/sqs/sqs.integ.js' deploy"
+        }
+      ]
+    },
+    "integ:sqs:destroy": {
+      "name": "integ:sqs:destroy",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/sqs/sqs.integ.js' destroy"
         }
       ]
     },
